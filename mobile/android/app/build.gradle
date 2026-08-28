@@ -13,8 +13,8 @@ android {
 
     defaultConfig {
         applicationId = 'dev.sfg.orchard.mobile'
-        // Lowered from 31 to 24 to enable support for 32-bit Android devices
-        minSdk = 24
+        // Set to 26 to satisfy eu.buney.kopus library requirements while supporting 32-bit (armeabi-v7a)
+        minSdk = 26
         targetSdk = 36
         versionCode = 10900
         versionName = '1.9.0'
