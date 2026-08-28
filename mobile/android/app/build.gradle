@@ -13,7 +13,8 @@ android {
 
     defaultConfig {
         applicationId = 'dev.sfg.orchard.mobile'
-        minSdk = 31
+        // Lowered from 31 to 24 to enable support for 32-bit Android devices
+        minSdk = 24
         targetSdk = 36
         versionCode = 10900
         versionName = '1.9.0'
@@ -23,11 +24,10 @@ android {
         // upgrade nor installable over it.
         buildConfigField 'boolean', 'UPDATER_ENABLED', 'true'
         testInstrumentationRunner = 'androidx.test.runner.AndroidJUnitRunner'
+        
         ndk {
-            // 64-bit only. minSdk 31 predates the 64-bit requirement by years, and a 32-bit
-            // slice would double the native payload for devices that do not exist in the
-            // install base.
-            abiFilters += ['arm64-v8a', 'x86_64']
+            // Explicitly set to 32-bit ARM (armeabi-v7a)
+            abiFilters = ['armeabi-v7a']
         }
     }
 
